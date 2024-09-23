@@ -20,13 +20,13 @@ A brief description of what the project does or aims to achieve using Python Dja
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/JafirDon/django-tutorial.git
+    git clone https://github.com/JafirDon/django-blog-website.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd django-tutorial
+    cd django-blog-website
     ```
 
 3. Create and activate a virtual environment:
