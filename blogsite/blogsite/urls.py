@@ -19,11 +19,13 @@ from django.urls import path, re_path
 
 from .views import (
         home_page,
+        temp_page,
         re_page
     )
 
 urlpatterns = [
     path('my-admin/', admin.site.urls),
     path('', home_page),
+    path('home', temp_page), # example path for template page
     re_path(r'^pages?/$', re_page),  # example page for regression path
 ]
