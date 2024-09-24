@@ -18,17 +18,27 @@ from django.contrib import admin
 from django.urls import path, re_path
 
 from .views import (
-        home_page,
-        temp_page,
-        about_page,
-        re_page
+    home_page,
+    temp_page,
+    about_page,
+    re_page
+    )
+
+from blog.views import (
+    blog_post_details
     )
 
 urlpatterns = [
     path('my-admin/', admin.site.urls),
     path('', home_page),
+
     # example path for template page
     path('home', temp_page),
     path('about', about_page),
-    re_path(r'^pages?/$', re_page),  # example page for regression path
+
+    # example page for regression path
+    re_path(r'^pages?/$', re_page),
+
+    # app views path
+    path('blogpost', blog_post_details),
 ]
