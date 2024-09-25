@@ -40,5 +40,5 @@ urlpatterns = [
     re_path(r'^pages?/$', re_page),
 
     # app views path
-    path('blogpost', blog_post_details),
+    path('blogpost/<int:post_id>', blog_post_details),
 ]
