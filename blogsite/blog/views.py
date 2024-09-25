@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
 
 # Create your views here.
-def blog_post_details(request, post_id):
+def blog_post_details(request, slug):
 
-    obj = BlogPost.objects.get(id=post_id)
+    # obj = BlogPost.objects.filter(slug=slug).first()
+    obj = get_object_or_404(BlogPost, slug=slug)
 
     template_name = "blog_post_details.html"
     context = {"blog": obj}
