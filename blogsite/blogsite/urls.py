@@ -25,6 +25,7 @@ from .views import (
     )
 
 from blog.views import (
+    blog_list_view,
     blog_post_details
     )
 
@@ -40,5 +41,6 @@ urlpatterns = [
     re_path(r'^pages?/$', re_page),
 
     # app views path
-    path('blogpost/<str:slug>', blog_post_details),
+    path('blogpost/', blog_list_view),
+    path('blogpost/<str:slug>/', blog_post_details),
 ]
