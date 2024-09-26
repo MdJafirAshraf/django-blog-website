@@ -14,11 +14,11 @@ def blog_list_view(request):
     return render(request, template_name, context)
 
 # blog create view
-def blog_list_view(request):
+def blog_create(request):
 
     obj = BlogPost.objects.all()
 
-    template_name = "blog_list_view.html"
+    template_name = "blog_create.html"
     context = {"blog": obj}
 
     return render(request, template_name, context)
