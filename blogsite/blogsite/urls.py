@@ -34,8 +34,8 @@ urlpatterns = [
     path('', home_page),
 
     # example path for template page
-    path('about', about_page),
-    path('contact', contact_page),
+    path('about/', about_page),
+    path('contact/', contact_page),
 
     # example page for regression path
     re_path(r'^pages?/$', re_page),
