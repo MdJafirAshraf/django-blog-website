@@ -19,7 +19,7 @@ from django.urls import path, re_path, include
 
 from .views import (
     home_page,
-    temp_page,
+    contact_page,
     about_page,
     re_page
     )
@@ -34,8 +34,8 @@ urlpatterns = [
     path('', home_page),
 
     # example path for template page
-    path('home', temp_page),
     path('about', about_page),
+    path('contact', contact_page),
 
     # example page for regression path
     re_path(r'^pages?/$', re_page),
