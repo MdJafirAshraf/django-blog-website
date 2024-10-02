@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
     blog_list_view,
+    blog_create,
     blog_post_details
     )
 

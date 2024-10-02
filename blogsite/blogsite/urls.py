@@ -25,8 +25,7 @@ from .views import (
     )
 
 from blog.views import (
-    blog_list_view,
-    blog_post_details
+    blog_create
     )
 
 urlpatterns = [
@@ -42,4 +41,5 @@ urlpatterns = [
 
     # app views path
     path('blogpost/', include('blog.urls')),
+    path('blogpost-new/', blog_create),
 ]

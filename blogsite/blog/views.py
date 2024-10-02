@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BlogPost
+from .forms import BlogPostForm
 
 # Create your views here.
 
@@ -15,11 +16,16 @@ def blog_list_view(request):
 
 # blog create view
 def blog_create(request):
-
-    obj = BlogPost.objects.all()
+    form = BlogPostForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+        obj = BlogPost.objects.create(**form.cleaned_data)
 
     template_name = "blog_create.html"
-    context = {"blog": obj}
+    context = {
+        "title": 'Create New Blog',
+        "form": form
+        }
 
     return render(request, template_name, context)
 
