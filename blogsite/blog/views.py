@@ -19,8 +19,12 @@ def blog_create(request):
     form = BlogPostModelForm(request.POST or None)
     if form.is_valid():
         print(form.cleaned_data)
+        
         # obj = BlogPost.objects.create(**form.cleaned_data)
+        obj = form.save(commit=False)
+        obj.slug = form.cleaned_data.get('slug') + "-blog"
         form.save()
+
         form = BlogPostModelForm()
 
     template_name = "blog_create.html"
