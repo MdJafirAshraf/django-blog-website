@@ -22,7 +22,8 @@ def contact_page (request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         print(form.cleaned_data)
+        form = ContactForm()
 
     template_name = 'contact.html'
-    context = {"title": "Contact Us"}
+    context = {"title": "Contact Us", "form": form}
     return render(request, template_name, context)

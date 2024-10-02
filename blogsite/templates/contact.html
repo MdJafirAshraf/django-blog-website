@@ -7,9 +7,7 @@
     <div class="row p-3">
         <form method="post" action="."> 
             {% csrf_token %}
-            <input type="text" name="name">
-            <input type="email" name="email">
-            <textarea name="content" id="" cols="30" rows="10"></textarea>
+            {{ form.as_p }}
             <button type="submit">Send</button>
         </form>
     </div>
