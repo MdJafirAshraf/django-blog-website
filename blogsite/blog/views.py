@@ -27,7 +27,7 @@ def blog_create(request):
 
         form = BlogPostModelForm()
 
-    template_name = "blog_create.html"
+    template_name = "form.html"
     context = {
         "title": 'Create New Blog',
         "form": form
@@ -47,21 +47,28 @@ def blog_post_details(request, slug):
     return render(request, template_name, context)
 
 # blog update view
-def blog_update(request):
+def blog_update(request,slug):
 
-    obj = BlogPost.objects.all()
+    obj = get_object_or_404(BlogPost, slug=slug)
+    form = BlogPostModelForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        print(form.cleaned_data)
+        form.save()
 
-    template_name = "blog_update.html"
-    context = {"blog": obj}
+    template_name = "form.html"
+    context = {
+        "title": f'Update {obj.title}',
+        "form": form
+        }
 
     return render(request, template_name, context)
 
 # blog delete view
-def blog_delete(request):
+def blog_delete(request, slug):
 
-    obj = BlogPost.objects.all()
+    obj = get_object_or_404(BlogPost, slug=slug)
 
-    template_name = "blog_delete.html"
+    template_name = "blog_post_details.html"
     context = {"blog": obj}
 
     return render(request, template_name, context)
