@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import BlogPost
 from .forms import BlogPostForm, BlogPostModelForm
 
@@ -68,8 +68,12 @@ def blog_delete(request, slug):
 
     obj = get_object_or_404(BlogPost, slug=slug)
 
-    template_name = "blog_post_details.html"
-    context = {"blog": obj}
+    template_name = "delete.html"
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('/blogpost')
+
+    context = {"object": obj}
 
     return render(request, template_name, context)
 
