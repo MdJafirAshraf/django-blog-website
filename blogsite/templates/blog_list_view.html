@@ -3,9 +3,21 @@
 {% block content %}
 <div class="container">
     <div class="row p-3">
-        {% for blog in blogs %}
-            <li><a href='{{blog.get_absolute_url}}'>{{ blog.title }}</a></li>
-        {% endfor %}
+        <div class="col-12 col-md-10 mx-auto">
+            {% for blog in blogs %}
+                <div class="card mb-3">
+                    <div class="card-header">
+                        {{ blog.title }}
+                    </div>
+                    <div class="card-body">
+                        {{ blog.content }}
+                    </div>
+                    <div class="card-footer">
+                        <a href='{{blog.get_absolute_url}}'>View</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 
